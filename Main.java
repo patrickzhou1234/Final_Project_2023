@@ -1,8 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
+    private static ArrayList<String> routes = new ArrayList<String>();
+
     public static void main(String[] args) throws FileNotFoundException {
         // Initializing Scanner Object
         Scanner in = new Scanner(System.in);
@@ -30,46 +33,75 @@ public class Main {
                 maze[i][j] = line.charAt(j);
             }
         }
-
+        System.out.print("Input the starting row: ");
+        int startRow = in.nextInt();
+        System.out.print("Input the starting column: ");
+        int startCol = in.nextInt();
         // Printing the maze
         System.out.print("The maze route is: ");
-        String route = "";
-        while (route.equals("")) {
-            route = getRoute(maze, "", 0, 4, 0, 4);
-        }
-        System.out.print(route);
+        // boolean exitAvailable;
+        // exitAvailable = false;
+        // for (i = 0; i < rows; i++) {
+        // if (maze[i][0] == ' ' || maze[i][cols - 1] == ' ') {
+        // exitAvailable = true;
+        // break;
+        // }
+        // }
+        // if (!exitAvailable) {
+        // for (i = 0; i < cols; i++) {
+        // if (maze[0][i] == ' ' || maze[rows - 1][i] == ' ') {
+        // exitAvailable = true;
+        // break;
+        // }
+        // }
+        // }
+        // if (!exitAvailable) {
+        // break;
+        // }
+
+        // for (i = 0; i < rows; i++) {
+        // for (j = 0; j < cols; j++) {
+        // if (maze[i][j] == 'X') {
+        // maze[i][j] = ' ';
+        // }
+        // }
+        // }
+        getRoute(maze, "", startRow, startCol);
+        System.out.print(routes);
+
     }
 
-    public static String getRoute(char maze[][], String currentRoute, int currentRow, int currentCol, int origRow, int origCol) {
-        if ((currentRow == 0 || currentCol == 0 || currentRow == maze.length - 1 || currentCol == maze[0].length - 1)
-                && !(currentRow==origRow && currentCol==origCol)) {
-            return currentRoute;
+    public static void getRoute(char maze[][], String currentRoute, int currentRow, int currentCol) {
+        maze[currentRow][currentCol] = 'X';
+        if (currentRow == 0 || currentCol == 0 || currentRow == maze.length - 1 || currentCol == maze[0].length - 1) {
+            routes.add(currentRoute);
+            /*
+             * for (int i = 0; i < maze.length; i++) {
+             * for (int j = 0; j < maze[0].length; j++) {
+             * if (maze[i][j] == 'X') {
+             * maze[i][j] = ' ';
+             * }
+             * }
+             * }
+             */
+            return;
         }
-        char previousMove;
-        if (currentRoute.length() != 0) {
-            previousMove = currentRoute.charAt(currentRoute.length() - 1);
-        } else {
-            previousMove = ' ';
+        if (maze[currentRow][currentCol - 1] == ' ') {
+            currentRoute += "W";
+            getRoute(maze, currentRoute, currentRow, currentCol - 1);
         }
-        int i = (int) (Math.random() * 4);
-        if (i == 0 && currentCol != 0 && maze[currentRow][currentCol - 1] == ' ' && previousMove != 'R') {
-            currentRoute += 'L';
-            return getRoute(maze, currentRoute, currentRow, currentCol - 1, origRow, origCol);
+        if (maze[currentRow - 1][currentCol] == ' ') {
+            currentRoute += "N";
+            getRoute(maze, currentRoute, currentRow - 1, currentCol);
         }
-        if (i == 1 && currentRow != 0 && maze[currentRow - 1][currentCol] == ' ' && previousMove != 'D') {
-            currentRoute += 'U';
-            return getRoute(maze, currentRoute, currentRow - 1, currentCol, origRow, origCol);
+        if (maze[currentRow][currentCol + 1] == ' ') {
+            currentRoute += "E";
+            getRoute(maze, currentRoute, currentRow, currentCol + 1);
         }
-        if (i == 2 && currentCol != maze[0].length - 1 && maze[currentRow][currentCol + 1] == ' '
-                && previousMove != 'L') {
-            currentRoute += 'R';
-            return getRoute(maze, currentRoute, currentRow, currentCol + 1, origRow, origCol);
+        if (maze[currentRow + 1][currentCol] == ' ') {
+            currentRoute += "S";
+            getRoute(maze, currentRoute, currentRow + 1, currentCol);
         }
-        if (i == 3 && currentRow != maze.length - 1 && maze[currentRow + 1][currentCol] == ' '
-                && previousMove != 'U') {
-            currentRoute += 'D';
-            return getRoute(maze, currentRoute, currentRow + 1, currentCol, origRow, origCol);
-        }
-        return "";
+        return;
     }
 }
