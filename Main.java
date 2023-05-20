@@ -11,9 +11,9 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         // Getting the file name
-        System.out.println("What is the file name for the maze?");
+        System.out.print("What is the file name for the maze? ");
         String filename = in.nextLine();
-        File f = new File(filename); // BOJO SKIWISSUE BRO LMFAOOFAMOMFA BPJOJOJO BOJO JOJO SKIWISSOO
+        File f = new File(filename);
         Scanner fileScanner = new Scanner(f);
 
         // Declaring vars
@@ -39,25 +39,6 @@ public class Main {
         int startCol = in.nextInt();
         // Printing the maze
         System.out.print("The maze route is: ");
-        // boolean exitAvailable;
-        // exitAvailable = false;
-        // for (i = 0; i < rows; i++) {
-        // if (maze[i][0] == ' ' || maze[i][cols - 1] == ' ') {
-        // exitAvailable = true;
-        // break;
-        // }
-        // }
-        // if (!exitAvailable) {
-        // for (i = 0; i < cols; i++) {
-        // if (maze[0][i] == ' ' || maze[rows - 1][i] == ' ') {
-        // exitAvailable = true;
-        // break;
-        // }
-        // }
-        // }
-        // if (!exitAvailable) {
-        // break;
-        // }
         getRoute(maze, "", startRow, startCol, startRow, startCol);
         System.out.print(routes);
 
