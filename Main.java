@@ -41,7 +41,6 @@ public class Main {
         System.out.print("The maze route is: ");
         getRoute(maze, "", startRow, startCol, startRow, startCol);
         System.out.print(routes);
-
     }
 
     public static void getRoute(char maze[][], String currentRoute, int currentRow, int currentCol, int origRow,
