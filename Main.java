@@ -13,7 +13,7 @@ public class Main {
         // Getting the file name
         System.out.println("What is the file name for the maze?");
         String filename = in.nextLine();
-        File f = new File(filename);
+        File f = new File(filename); // BOJO SKIWISSUE BRO LMFAOOFAMOMFA BPJOJOJO BOJO JOJO SKIWISSOO
         Scanner fileScanner = new Scanner(f);
 
         // Declaring vars
@@ -58,49 +58,34 @@ public class Main {
         // if (!exitAvailable) {
         // break;
         // }
-
-        // for (i = 0; i < rows; i++) {
-        // for (j = 0; j < cols; j++) {
-        // if (maze[i][j] == 'X') {
-        // maze[i][j] = ' ';
-        // }
-        // }
-        // }
-        getRoute(maze, "", startRow, startCol);
+        getRoute(maze, "", startRow, startCol, startRow, startCol);
         System.out.print(routes);
 
     }
 
-    public static void getRoute(char maze[][], String currentRoute, int currentRow, int currentCol) {
+    public static void getRoute(char maze[][], String currentRoute, int currentRow, int currentCol, int origRow,
+            int origCol) {
         maze[currentRow][currentCol] = 'X';
         if (currentRow == 0 || currentCol == 0 || currentRow == maze.length - 1 || currentCol == maze[0].length - 1) {
             routes.add(currentRoute);
-            /*
-             * for (int i = 0; i < maze.length; i++) {
-             * for (int j = 0; j < maze[0].length; j++) {
-             * if (maze[i][j] == 'X') {
-             * maze[i][j] = ' ';
-             * }
-             * }
-             * }
-             */
-            return;
+            currentRoute = "";
+            getRoute(maze, currentRoute, origRow, origCol, origRow, origCol);
         }
         if (maze[currentRow][currentCol - 1] == ' ') {
             currentRoute += "W";
-            getRoute(maze, currentRoute, currentRow, currentCol - 1);
+            getRoute(maze, currentRoute, currentRow, currentCol - 1, origRow, origCol);
         }
         if (maze[currentRow - 1][currentCol] == ' ') {
             currentRoute += "N";
-            getRoute(maze, currentRoute, currentRow - 1, currentCol);
+            getRoute(maze, currentRoute, currentRow - 1, currentCol, origRow, origCol);
         }
         if (maze[currentRow][currentCol + 1] == ' ') {
             currentRoute += "E";
-            getRoute(maze, currentRoute, currentRow, currentCol + 1);
+            getRoute(maze, currentRoute, currentRow, currentCol + 1, origRow, origCol);
         }
         if (maze[currentRow + 1][currentCol] == ' ') {
             currentRoute += "S";
-            getRoute(maze, currentRoute, currentRow + 1, currentCol);
+            getRoute(maze, currentRoute, currentRow + 1, currentCol, origRow, origCol);
         }
         return;
     }
