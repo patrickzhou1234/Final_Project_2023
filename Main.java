@@ -70,6 +70,7 @@ public class Main {
             routes.add(currentRoute);
             currentRoute = "";
             getRoute(maze, currentRoute, origRow, origCol, origRow, origCol);
+            return;
         }
         if (maze[currentRow][currentCol - 1] == ' ') {
             currentRoute += "W";
