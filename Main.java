@@ -48,26 +48,19 @@ public class Main {
         maze[currentRow][currentCol] = 'X';
         if (currentRow == 0 || currentCol == 0 || currentRow == maze.length - 1 || currentCol == maze[0].length - 1) {
             routes.add(currentRoute);
-            currentRoute = "";
-            getRoute(maze, currentRoute, origRow, origCol, origRow, origCol);
             return;
         }
         if (maze[currentRow][currentCol - 1] == ' ') {
-            currentRoute += "W";
-            getRoute(maze, currentRoute, currentRow, currentCol - 1, origRow, origCol);
+            getRoute(maze, currentRoute+'W', currentRow, currentCol - 1, origRow, origCol);
         }
         if (maze[currentRow - 1][currentCol] == ' ') {
-            currentRoute += "N";
-            getRoute(maze, currentRoute, currentRow - 1, currentCol, origRow, origCol);
+            getRoute(maze, currentRoute+'N', currentRow - 1, currentCol, origRow, origCol);
         }
         if (maze[currentRow][currentCol + 1] == ' ') {
-            currentRoute += "E";
-            getRoute(maze, currentRoute, currentRow, currentCol + 1, origRow, origCol);
+            getRoute(maze, currentRoute+'E', currentRow, currentCol + 1, origRow, origCol);
         }
         if (maze[currentRow + 1][currentCol] == ' ') {
-            currentRoute += "S";
-            getRoute(maze, currentRoute, currentRow + 1, currentCol, origRow, origCol);
+            getRoute(maze, currentRoute+'S', currentRow + 1, currentCol, origRow, origCol);
         }
-        return;
     }
 }
