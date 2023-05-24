@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -30,16 +31,21 @@ public class Main {
                 maze[i][j] = line.charAt(j);
             }
         }
+        fileScanner.close();
         System.out.print("Input the starting row: ");
         int startRow = in.nextInt();
         System.out.print("Input the starting column: ");
         int startCol = in.nextInt();
+        in.close();
         Maze mz = new Maze(maze, startRow, startCol);
         // Printing the maze
         System.out.print("The maze route is: ");
-        mz.getRoute();
+        mz.calculateRoute();
         System.out.print(mz);
-        MazeGraphics g = new MazeGraphics(maze);
-        g.drawMaze();
+        ArrayList<String> routes = mz.getRoutes();
+        for (i=0;i<routes.size();i++) {
+            MazeGraphics g = new MazeGraphics(maze, routes.get(i), startRow, startCol, i);
+            g.drawMaze();
+        }
     }
 }

@@ -17,31 +17,35 @@ public class Maze {
         this.startCol = startCol;
     }
 
-    public void getRoute() {
-        getRoute("", startRow, startCol);
+    public void calculateRoute() {
+        calculateRoute("", startRow, startCol);
     }
 
-    public void getRoute(String currentRoute, int currentRow, int currentCol) {
+    private void calculateRoute(String currentRoute, int currentRow, int currentCol) {
         maze[currentRow][currentCol] = 'X';
         if (currentRow == 0 || currentCol == 0 || currentRow == maze.length - 1 || currentCol == maze[0].length - 1) {
             routes.add(currentRoute);
             return;
         }
         if (maze[currentRow][currentCol - 1] == ' ') {
-            getRoute(currentRoute+'W', currentRow, currentCol - 1);
+            calculateRoute(currentRoute+'W', currentRow, currentCol - 1);
         }
         if (maze[currentRow - 1][currentCol] == ' ') {
-            getRoute(currentRoute+'N', currentRow - 1, currentCol);
+            calculateRoute(currentRoute+'N', currentRow - 1, currentCol);
         }
         if (maze[currentRow][currentCol + 1] == ' ') {
-            getRoute(currentRoute+'E', currentRow, currentCol + 1);
+            calculateRoute(currentRoute+'E', currentRow, currentCol + 1);
         }
         if (maze[currentRow + 1][currentCol] == ' ') {
-            getRoute(currentRoute+'S', currentRow + 1, currentCol);
+            calculateRoute(currentRoute+'S', currentRow + 1, currentCol);
         }
     }
 
     public String toString() {
         return routes.toString();
+    }
+
+    public ArrayList<String> getRoutes() {
+        return routes;
     }
 }
