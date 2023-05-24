@@ -41,8 +41,9 @@ public class Main {
         // Printing the maze
         System.out.print("The maze route is: ");
         mz.calculateRoute();
-        System.out.print(mz);
+        System.out.print(mz + "\n");
         ArrayList<String> routes = mz.getRoutes();
+        System.out.print("The shortest route is: " + mz.getShortestRoute());
         for (i = 0; i < routes.size(); i++) {
             MazeGraphics g = new MazeGraphics(maze, routes.get(i), startRow, startCol, i);
             g.drawMaze();
