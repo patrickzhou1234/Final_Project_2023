@@ -6,9 +6,9 @@ public class Maze {
     private ArrayList<String> routes = new ArrayList<String>();
 
     public Maze() {
-        maze=new char[0][0];
-        startRow=0;
-        startCol=0;
+        maze = new char[0][0];
+        startRow = 0;
+        startCol = 0;
     }
 
     public Maze(char[][] maze, int startRow, int startCol) {
@@ -28,16 +28,16 @@ public class Maze {
             return;
         }
         if (maze[currentRow][currentCol - 1] == ' ') {
-            calculateRoute(currentRoute+'W', currentRow, currentCol - 1);
+            calculateRoute(currentRoute + 'W', currentRow, currentCol - 1);
         }
         if (maze[currentRow - 1][currentCol] == ' ') {
-            calculateRoute(currentRoute+'N', currentRow - 1, currentCol);
+            calculateRoute(currentRoute + 'N', currentRow - 1, currentCol);
         }
         if (maze[currentRow][currentCol + 1] == ' ') {
-            calculateRoute(currentRoute+'E', currentRow, currentCol + 1);
+            calculateRoute(currentRoute + 'E', currentRow, currentCol + 1);
         }
         if (maze[currentRow + 1][currentCol] == ' ') {
-            calculateRoute(currentRoute+'S', currentRow + 1, currentCol);
+            calculateRoute(currentRoute + 'S', currentRow + 1, currentCol);
         }
     }
 

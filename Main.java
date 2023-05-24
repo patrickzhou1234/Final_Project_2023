@@ -43,7 +43,7 @@ public class Main {
         mz.calculateRoute();
         System.out.print(mz);
         ArrayList<String> routes = mz.getRoutes();
-        for (i=0;i<routes.size();i++) {
+        for (i = 0; i < routes.size(); i++) {
             MazeGraphics g = new MazeGraphics(maze, routes.get(i), startRow, startCol, i);
             g.drawMaze();
         }
