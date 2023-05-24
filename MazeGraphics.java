@@ -27,7 +27,6 @@ public class MazeGraphics extends JPanel {
         frame.setVisible(true);
     }
 
-    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         int i, j;

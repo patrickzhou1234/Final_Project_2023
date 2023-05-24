@@ -72,13 +72,17 @@ public class Maze {
         return routes;
     }
 
-    public String getShortestRoute() {
+    public ArrayList<String> getShortestRoute() {
         int i, min = Integer.MAX_VALUE;
-        String minRoute = "";
+        ArrayList<String> minRoute = new ArrayList<String>();
         for (i = 0; i < routes.size(); i++) {
             if (routes.get(i).length() < min) {
                 min = routes.get(i).length();
-                minRoute = routes.get(i);
+            }
+        }
+        for (i=0;i<routes.size();i++) {
+            if (routes.get(i).length()==min) {
+                minRoute.add(routes.get(i));
             }
         }
         return minRoute;
