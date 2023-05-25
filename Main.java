@@ -42,11 +42,13 @@ public class Main {
         System.out.print("The possible maze routes are: ");
         mz.calculateRoute();
         System.out.print(mz + "\n");
-        ArrayList<String> routes = mz.getRoutes();
-        System.out.print("The shortest routes are: " + mz.getShortestRoute());
-        for (i = 0; i < routes.size(); i++) {
-            MazeGraphics g = new MazeGraphics(maze, routes.get(i), startRow, startCol, i);
-            g.drawMaze();
-        }
+        ArrayList<String> routes, shortestRoutes;
+        routes = mz.getRoutes();
+        shortestRoutes = mz.getShortestRoute();
+        System.out.print("The shortest routes are: " + shortestRoutes);
+        MazeGraphics g = new MazeGraphics(maze, routes, startRow, startCol, "All Routes", 0);
+        g.drawMaze();
+        MazeGraphics g2 = new MazeGraphics(maze, shortestRoutes, startRow, startCol, "Shortest Routes", (maze[0].length+1)*50);
+        g2.drawMaze();
     }
 }
