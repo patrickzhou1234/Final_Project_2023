@@ -51,7 +51,12 @@ public class Main {
 
         // Outputting all the maze routes
         System.out.print("The possible maze routes are: \n");
-        for(i = 0; i < Math.ceil(routes.size()/4); i++){
+        if(routes.size() < 4){
+            for(i = 0; i < routes.size(); i++){
+                System.out.printf("%40s", routes.get(i) + " ");
+            }
+        }
+        for(i = 0; i < routes.size()/4; i++){
             for(j = 0; j < 4; j++){
                 System.out.printf("%40s", routes.get(i*4 + j) + " ");
             }
@@ -60,7 +65,12 @@ public class Main {
         
         // Outputting the shortest maze routes
         System.out.print("\n\nThe shortest maze routes are: \n");
-        for(i = 0; i < Math.ceil(shortestRoutes.size()/4); i++){
+        if(shortestRoutes.size() < 4){
+            for(i = 0; i < shortestRoutes.size(); i++){
+                System.out.printf("%40s", shortestRoutes.get(i) + " ");
+            }
+        }
+        for(i = 0; i < shortestRoutes.size()/4; i++){
             for(j = 0; j < 4; j++){
                 System.out.printf("%40s", shortestRoutes.get(i*4 + j) + " ");
             }
@@ -79,4 +89,3 @@ public class Main {
         in.close();
         fileScanner.close();
     }
-}
