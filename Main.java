@@ -51,35 +51,36 @@ public class Main {
 
         // Outputting all the maze routes
         System.out.print("The possible maze routes are: \n");
-        if(routes.size() < 4){
-            for(i = 0; i < routes.size(); i++){
+        if (routes.size() < 4) {
+            for (i = 0; i < routes.size(); i++) {
                 System.out.printf("%40s", routes.get(i) + " ");
             }
         }
-        for(i = 0; i < routes.size()/4; i++){
-            for(j = 0; j < 4; j++){
-                System.out.printf("%40s", routes.get(i*4 + j) + " ");
+        for (i = 0; i < routes.size() / 4; i++) {
+            for (j = 0; j < 4; j++) {
+                System.out.printf("%40s", routes.get(i * 4 + j) + " ");
             }
             System.out.println();
         }
-        
+
         // Outputting the shortest maze routes
         System.out.print("\n\nThe shortest maze routes are: \n");
-        if(shortestRoutes.size() < 4){
-            for(i = 0; i < shortestRoutes.size(); i++){
+        if (shortestRoutes.size() < 4) {
+            for (i = 0; i < shortestRoutes.size(); i++) {
                 System.out.printf("%40s", shortestRoutes.get(i) + " ");
             }
         }
-        for(i = 0; i < shortestRoutes.size()/4; i++){
-            for(j = 0; j < 4; j++){
-                System.out.printf("%40s", shortestRoutes.get(i*4 + j) + " ");
+        for (i = 0; i < shortestRoutes.size() / 4; i++) {
+            for (j = 0; j < 4; j++) {
+                System.out.printf("%40s", shortestRoutes.get(i * 4 + j) + " ");
             }
             System.out.println();
         }
 
         // Initializing MazeGraphics objects
         MazeGraphics allRoutesGraphics = new MazeGraphics(maze, routes, startRow, startCol, "All Routes", 0);
-        MazeGraphics shortestRoutesGraphics = new MazeGraphics(maze, shortestRoutes, startRow, startCol, "Shortest Routes", (maze[0].length+1)*50);
+        MazeGraphics shortestRoutesGraphics = new MazeGraphics(maze, shortestRoutes, startRow, startCol,
+                "Shortest Routes", (maze[0].length + 1) * 50);
 
         // Drawaing the maze using graphics
         allRoutesGraphics.drawMaze();
