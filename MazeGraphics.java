@@ -37,6 +37,7 @@ public class MazeGraphics extends JPanel {
                 }
             }
         }
+        int tmpStartRow = startRow, tmpStartCol = startCol;
         for (i = 0; i < route.length(); i++) {
             if (route.charAt(i) == 'N') {
                 startRow--;
@@ -55,6 +56,8 @@ public class MazeGraphics extends JPanel {
                     g.setColor(Color.BLACK);
                 } else if (maze[i][j] == 'X') {
                     g.setColor(Color.GREEN);
+                } else if (i==tmpStartRow && j==tmpStartCol) {
+                    g.setColor(Color.RED);
                 } else {
                     g.setColor(Color.WHITE);
                 }
