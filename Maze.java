@@ -112,7 +112,7 @@ public class Maze {
     }
 
     /**
-     * Overrieds toString() method of Object Class to display all the possible routes
+     * Overrides toString() method of Object Class to display all the possible routes
      * 
      * @return none
      */
