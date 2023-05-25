@@ -1,0 +1,24 @@
+What is the file name for the maze? maze.txt
+Input the starting row: 8
+Input the starting column: 8
+The possible maze routes are: 
+                           NWWNNNWNWNNN                            NWWNNNNWWNNN                      NWWNEEENNNWNWNWWWN                             NWWSWWSWWWW 
+                            NWWSWWSWWSS                            NWNWNNWNWNNN                            NWNWNNNWWNNN                           NWNWSSWWSWWWW
+                          NWNWSSWWSWWSS                        NWNEENNNWNWNWWWN         NWNEENNNWNWNWWWSSEESSSSSWWSWWWW         NWNEENNNWNWNWWWSSEESSSSSWWSWWSS
+        NWNEENNNWNWNWWWSSESESSSSWWSWWWW         NWNEENNNWNWNWWWSSESESSSSWWSWWSS                            NNWWNNWNWNNN                            NNWWNNNWWNNN
+                          NNWWSSWWSWWWW                           NNWWSSWWSWWSS                          NNWSWNNNWNWNNN                          NNWSWNNNNWWNNN
+                          NNWSWSWWSWWWW                           NNWSWSWWSWWSS                          NNENNNWNWNWWWN         NNENNNWNWNWWWSSEESSSESWSWWSWWWW
+        NNENNNWNWNWWWSSEESSSESWSWWSWWSS           NNENNNWNWNWWWSSEESSSSSWWSWWWW           NNENNNWNWNWWWSSEESSSSSWWSWWSS         NNENNNWNWNWWWSSESESSESWSWWSWWWW
+        NNENNNWNWNWWWSSESESSESWSWWSWWSS           NNENNNWNWNWWWSSESESSSSWWSWWWW           NNENNNWNWNWWWSSESESSSSWWSWWSS                          NENWWWNNWNWNNN
+                         NENWWWNNNWWNNN                         NENWWWSSWWSWWWW                         NENWWWSSWWSWWSS                        NENWWSWNNNWNWNNN
+                       NENWWSWNNNNWWNNN                         NENWWSWSWWSWWWW                         NENWWSWSWWSWWSS                          NENNNNWNWNWWWN
+        NENNNNWNWNWWWSSEESSSESWSWWSWWWW         NENNNNWNWNWWWSSEESSSESWSWWSWWSS           NENNNNWNWNWWWSSEESSSSSWWSWWWW           NENNNNWNWNWWWSSEESSSSSWWSWWSS
+        NENNNNWNWNWWWSSESESSESWSWWSWWWW         NENNNNWNWNWWWSSESESSESWSWWSWWSS           NENNNNWNWNWWWSSESESSSSWWSWWWW           NENNNNWNWNWWWSSESESSSSWWSWWSS
+                            SWSWWWNWWWW                             SWSWWWNWWSS                    SWSWWWNNEENNNNWNWNNN                    SWSWWWNNEENNNNNWWNNN
+             SWSWWWNNEENNEEENNNWNWNWWWN            SWSWWWNNEENNEESENNNNWNWNWWWN            SWSWWWNNEENNESENENNNWNWNWWWN            SWSWWWNNEENNESEENNNNWNWNWWWN
+                 SWSWWWNNEENENWNNWNWNNN                  SWSWWWNNEENENWNNNWWNNN              SWSWWWNNEENENEENNNWNWNWWWN            SWSWWWNNEENENESENNNNWNWNWWWN
+               SWSWWWNNEENEENWWNNWNWNNN                SWSWWWNNEENEENWWNNNWWNNN              SWSWWWNNEENEENENNNWNWNWWWN              SWSWWWNNEENEEENWWWNNWNWNNN
+
+
+The shortest maze routes are:
+                            NWWSWWSWWWW                             NWWSWWSWWSS                             SWSWWWNWWWW                             SWSWWWNWWSS
