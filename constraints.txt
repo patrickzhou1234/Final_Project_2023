@@ -1,1 +1,10 @@
-to be worked on
+Problem Space
+
+A text file that stores a maze is provided and the first line of the file are the dimensions for the maze.
+Make a java program that reads the file for the maze and find all possible solutions for the maze. Then, print and show/display them with a Graphical User Interface.
+
+Constraints
+
+The starting position coordinates should not be on a border or a wall and should be a valid open space.
+The maze text file should include the dimensions of the maze on the first line, written in the format "{Row #} {Column #}".
+The walls of the maze should not be made with the character 'X'.
