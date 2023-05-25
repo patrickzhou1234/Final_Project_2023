@@ -18,37 +18,54 @@ public class Main {
         int i, j, rows, cols;
         String line;
         char[][] maze;
+        ArrayList<String> routes, shortestRoutes;
 
         // Initializing 2D array vars
         rows = fileScanner.nextInt();
         cols = fileScanner.nextInt();
         maze = new char[rows][cols];
+
         fileScanner.nextLine();
 
+        // Adding all characters from the maze file into a 2D array
         for (i = 0; i < rows; i++) {
             line = fileScanner.nextLine();
             for (j = 0; j < cols; j++) {
                 maze[i][j] = line.charAt(j);
             }
         }
-        fileScanner.close();
+
+        // Inputting starting row and column
         System.out.print("Input the starting row: ");
         int startRow = in.nextInt();
         System.out.print("Input the starting column: ");
         int startCol = in.nextInt();
-        in.close();
+
+        // Initializing Maze object
         Maze mz = new Maze(maze, startRow, startCol);
-        // Printing the maze
-        System.out.print("The possible maze routes are: ");
-        mz.calculateRoute();
-        System.out.print(mz + "\n");
-        ArrayList<String> routes, shortestRoutes;
+
+        // Calculating the routes
+        mz.calculateRoutes();
         routes = mz.getRoutes();
         shortestRoutes = mz.getShortestRoute();
-        System.out.print("The shortest routes are: " + shortestRoutes);
-        MazeGraphics g = new MazeGraphics(maze, routes, startRow, startCol, "All Routes", 0);
-        g.drawMaze();
-        MazeGraphics g2 = new MazeGraphics(maze, shortestRoutes, startRow, startCol, "Shortest Routes", (maze[0].length+1)*50);
-        g2.drawMaze();
+
+        // Outputting all the maze routes
+        System.out.print("The possible maze routes are: ");
+        System.out.print(mz + "\n");
+        
+        // Outputting the shortest maze routes
+        System.out.print("The shortest maze routes are: " + shortestRoutes);
+
+        // Initializing MazeGraphics objects
+        MazeGraphics allRoutesGraphics = new MazeGraphics(maze, routes, startRow, startCol, "All Routes", 0);
+        MazeGraphics shortestRoutesGraphics = new MazeGraphics(maze, shortestRoutes, startRow, startCol, "Shortest Routes", (maze[0].length+1)*50);
+
+        // Drawaing the maze using graphics
+        allRoutesGraphics.drawMaze();
+        shortestRoutesGraphics.drawMaze();
+
+        // Closing Scanner objects
+        in.close();
+        fileScanner.close();
     }
 }
